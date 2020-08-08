@@ -127,3 +127,9 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Audio files
+audio/
+
+# Bloody mac
+.DS_*

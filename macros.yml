@@ -35,3 +35,20 @@ macros:
         duration: 5
       - type: osc
         path: /atem/dsk/1/on-air/auto
+  2:
+    name: East Window
+    colour: amber
+    steps:
+      - type: osc
+        path: /atem/mplayer/1/still/3
+      - type: osc
+        path: /atem/preview/3010
+      - type: osc
+        path: /atem/transition/auto
+
+  3:
+    name: Gloria
+    colour: red
+    steps:
+      - type: audio
+        path: ./audio/gloria.wav
