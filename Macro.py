@@ -16,11 +16,16 @@ def loadMacros(controller, path="macros.yml"):
             yml = yaml.safe_load(stream)
         except yaml.YAMLError as exc:
             print(exc)
-            
-    for id, macro in yml["macros"].items():
-        _macro = Macro(macro, id)
+
+    for id in range(64):
+    # for id, macro in yml["macros"].items():
+        try:
+            macro = yml["macros"][id]
+            _macro = Macro(macro, id)
+            controller.lightOn(id, _macro.colour)
+        except KeyError:
+            _macro = NoMacro()
         macros.insert(id, _macro)
-        controller.lightOn(id, _macro.colour)
 
     
     return macros
@@ -143,3 +148,16 @@ class Macro:
         return u"Macro '{}'".format(self._name)
     def __repr__(self):
         return u"Macro '{}'".format(self._name)
+
+class NoMacro:
+    def run(self, controller):
+        pass
+    def stop(self):
+        pass
+
+    def __str__(self):
+        return "Not a Macro"
+    def __unicode__(self):
+        return u"Not a Macro"
+    def __repr__(self):
+        return u"Not a Macro"

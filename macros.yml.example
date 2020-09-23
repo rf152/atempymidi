@@ -1,0 +1,19 @@
+macros:
+  0:
+    name: Macro 1
+    colour: green
+    steps:
+      - type: osc
+        path: /atem/preview/2
+      - type: osc
+        path: /atem/transition/auto
+      - type: sleep 
+        duration: 2
+      - type: osc
+        path: /atem/mplayer/1/still/1
+      - type: osc
+        path: /atem/dsk/1/on-air/auto
+      - type: sleep
+        duration: 5
+      - type: osc
+        path: /atem/dsk/1/on-air/auto

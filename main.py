@@ -4,7 +4,7 @@ from pygame.midi import MidiException
 import time
 
 try:
-    controller = MidiController(0, 1)
+    controller = MidiController(0, 1, False)
 except MidiException:
     print("Error initialising MIDI")
     exit()
