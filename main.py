@@ -2,6 +2,13 @@ from MidiController import MidiController
 from Macro import loadMacros
 from pygame.midi import MidiException
 import time
+import argparse
+
+parser = argparse.ArgumentParser(description='Atem MIDI Surface')
+parser.add_argument('-m', type=str, default='macros.yml',
+                    help='the macro file to load', metavar="macros.yml")
+
+args = parser.parse_args()
 
 try:
     controller = MidiController(0, 1, False)
@@ -10,7 +17,7 @@ except MidiException:
     exit()
 
 try:
-    macros = loadMacros(controller)
+    macros = loadMacros(controller, path="macros/{}".format(args.m))
     while True:
         time.sleep(0.0001)
         if controller.hasEvent():
