@@ -134,4 +134,4 @@ audio/
 # Bloody mac
 .DS_*
 
-macros.yml
+macros/*
